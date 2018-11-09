@@ -45,8 +45,42 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public Integer convertRomanToArabe(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return 3;
+        
+        int res = 0;
+        
+        for (int i = 0 ; i < nbr.length() ;i++){
+
+            char test = nbr.charAt(i);
+            int res2 = 0;
+
+            if(test == 'I'){
+                res2 = 1;
+            }
+            else if(test == 'V'){
+            res2 = 5;
+        }
+            else if(test == 'X'){
+            res2 = 10;
+        }
+            else if(test == 'L'){
+            res2 = 50;
+        }
+            else if(test == 'C'){
+            res2 = 100;
+        }
+            else if(test == 'D'){
+            res2 = 500;
+        }
+            else if(test == 'M'){
+            res2 = 1000;
+        }
+            /* ajouter res2 a res pour obtenir le total */
+            res = res + res2 ;
+
+
+        }
+
+        return res;
     }
     
     /**
