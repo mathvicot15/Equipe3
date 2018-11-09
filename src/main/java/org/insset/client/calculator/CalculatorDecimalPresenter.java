@@ -148,12 +148,12 @@ public class CalculatorDecimalPresenter extends Composite {
             value = Integer.parseInt(valA.getText());
         } catch (NumberFormatException e) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Donnée incorrecte");
             return;
         }
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Donnée incorrecte");
             return;
         }
         if (FieldVerifier.isBetween(1, 2000, value) == false){
