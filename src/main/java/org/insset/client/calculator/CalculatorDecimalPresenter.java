@@ -148,12 +148,17 @@ public class CalculatorDecimalPresenter extends Composite {
             value = Integer.parseInt(valA.getText());
         } catch (NumberFormatException e) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Donnée incorrecte");
             return;
         }
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Donnée incorrecte");
+            return;
+        }
+        if (FieldVerifier.isBetween(1, 2000, value) == false){
+            errorLabelAToR.addStyleName("serverResponseLabelError");
+            errorLabelAToR.setText("Donnée incorrecte");
             return;
         }
         
@@ -177,15 +182,13 @@ public class CalculatorDecimalPresenter extends Composite {
     private void convertDate() {
         //Verif
         if (!FieldVerifier.isValidDate(valD.getText())) {
-            errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelD.addStyleName("serverResponseLabelError");
+            errorLabelD.setText("Donnée incorrecte");
             return;
         }
         //call server
         service.convertDateYears(valD.getText(), new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
-                // Show the RPC error message to the user
-//                Window.alert(SERVER_ERROR);
             }
 
             public void onSuccess(String result) {
