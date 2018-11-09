@@ -64,7 +64,13 @@ public class FieldVerifier {
         //Implement your code
         return true;
     }
-
+    
+    /**
+    * @author  RDPaul
+    * @since   09/11/2018
+    * @param date Valeur à traiter
+    * @return bool Retourne true si la value est valide
+    */
     public static boolean isValidDate(String date) {
         String[] tab = date.split("/");
         if(tab.length != 3){

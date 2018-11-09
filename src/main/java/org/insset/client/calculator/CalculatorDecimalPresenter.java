@@ -183,7 +183,7 @@ public class CalculatorDecimalPresenter extends Composite {
         //Verif
         if (!FieldVerifier.isValidDate(valD.getText())) {
             errorLabelD.addStyleName("serverResponseLabelError");
-            errorLabelD.setText("DOnnée incorect");
+            errorLabelD.setText("Donnée incorrecte");
             return;
         }
         //call server

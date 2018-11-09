@@ -16,7 +16,13 @@ import org.insset.client.service.RomanConverterService;
 @SuppressWarnings("serial")
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
-
+    
+    /**
+    * @author  RDPaul
+    * @since   09/11/2018
+    * @param nbr Valeur à traiter
+    * @return string Retourne la valeur convertie
+    */
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
      
