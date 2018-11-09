@@ -65,7 +65,14 @@ public class FieldVerifier {
         //Implement your code
         return true;
     }
-    
+    /**
+    * @author  VMathieu
+    * @since   09/11/2018
+    * @param limit1 Valeur inférieure
+    * @param limit2 Valeur supérieure  
+    * @param value Valeur à traiter
+    * @return bool Retourne true si la value est supérieure à 2000 ou inférieure à 1
+    */
     public static boolean isBetween(int limit1, int limit2, int value){
         if(value < limit1 || value > limit2){
             return false;
