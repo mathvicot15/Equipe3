@@ -6,6 +6,7 @@
 package org.insset.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import static java.lang.Integer.parseInt;
 import org.insset.client.service.RomanConverterService;
 
 /**
@@ -18,8 +19,22 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public String convertDateYears(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return "XV/III/MX";
+     
+        String[] tab = nbr.split("/");
+        int tmp;
+        int cpt = 0;
+        String result = "";
+        for(int i = 0; i< tab.length; i++){
+            cpt += 1;
+            tmp = parseInt(tab[i]);
+
+            if(cpt<3){
+                result += convertArabeToRoman(tmp)+"/";
+            }else{
+                result += convertArabeToRoman(tmp);
+            }
+        }
+        return result;
     }
 
     @Override
