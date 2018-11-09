@@ -1,5 +1,9 @@
 package org.insset.shared;
 
+import static java.lang.Integer.parseInt;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -62,8 +66,22 @@ public class FieldVerifier {
     }
 
     public static boolean isValidDate(String date) {
-        //Implement your code
-        return true;
+        String[] tab = date.split("/");
+        if(tab.length != 3){
+            return false;
+        }else if(!isBetween(1,31,parseInt(tab[0]))){
+            return false;
+            
+        }else if(!isBetween(1,12,parseInt(tab[1]))){
+            return false;
+            
+        }else if(!isBetween(1,2000,parseInt(tab[2]))){
+            return false;
+            
+        }else{
+            return true;
+        }
+         
     }
     
     public static boolean isBetween(int limit1, int limit2, int value){
