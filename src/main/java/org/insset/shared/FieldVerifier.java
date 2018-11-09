@@ -61,7 +61,45 @@ public class FieldVerifier {
     }
 
     public static boolean isValidRoman(String nbr) {
-        //Implement your code
+        int res = 0;
+        for (int i = 0 ; i < nbr.length() ;i++){
+
+            char test = nbr.charAt(i);
+            int res2 = 0;
+
+            if(test == 'I'){
+                res2 = 1;
+            }
+            else if(test == 'V'){
+            res2 = 5;
+        }
+            else if(test == 'X'){
+            res2 = 10;
+        }
+            else if(test == 'L'){
+            res2 = 50;
+        }
+            else if(test == 'C'){
+            res2 = 100;
+        }
+            else if(test == 'D'){
+            res2 = 500;
+        }
+            else if(test == 'M'){
+            res2 = 1000;
+        }
+            else{
+                return false;
+            }
+
+           res = res + res2;
+
+                }
+        if ( res > 1 && res < 1999){
+
+        }else{
+            return false;
+        }
         return true;
     }
     
