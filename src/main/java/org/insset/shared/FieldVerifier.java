@@ -65,4 +65,13 @@ public class FieldVerifier {
         //Implement your code
         return true;
     }
+    
+    public static boolean isBetween(int limit1, int limit2, int value){
+        if(value < limit1 || value > limit2){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
