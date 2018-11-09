@@ -156,6 +156,11 @@ public class CalculatorDecimalPresenter extends Composite {
             errorLabelAToR.setText("Format incorect");
             return;
         }
+        if (FieldVerifier.isBetween(1, 2000, value) == false){
+            errorLabelAToR.addStyleName("serverResponseLabelError");
+            errorLabelAToR.setText("Donnée incorrecte");
+            return;
+        }
         
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
