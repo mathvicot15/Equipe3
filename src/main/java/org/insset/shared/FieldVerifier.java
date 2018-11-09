@@ -101,7 +101,7 @@ public class FieldVerifier {
            res = res + res2;
 
                 }
-        if ( res > 1 && res < 1999){
+        if ( res >= 1 && res <= 1999){
 
         }else{
             return false;

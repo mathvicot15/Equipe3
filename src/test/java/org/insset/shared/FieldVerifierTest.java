@@ -36,13 +36,123 @@ public class FieldVerifierTest {
     @After
     public void tearDown() {
     }
-
+    
+    /**
+     * Test of isValidName method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidNameOK() {
+        String str = "bob";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidName(str);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidName method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidNameNOK() {
+        String str = "";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidName(str);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidName method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidNameNOKNull() {
+        String str = null;
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidName(str);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDecimal method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDecimal() {
+        int nbr = 1;
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidDecimal(nbr);
+        assertEquals(expResult, result);
+    }
+    
     /**
      * Test of isValidRoman method, of class FieldVerifier.
      */
     @Test
-    public void testIsValidRomanOK() {
+    public void testIsValidRomanOKI() {
+        String nbr = "I";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKV() {
         String nbr = "V";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKX() {
+        String nbr = "X";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKL() {
+        String nbr = "L";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKC() {
+        String nbr = "C";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKD() {
+        String nbr = "D";
+        boolean expResult = true;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanOKM() {
+        String nbr = "M";
         boolean expResult = true;
         boolean result = FieldVerifier.isValidRoman(nbr);
         assertEquals(expResult, result);
@@ -58,6 +168,17 @@ public class FieldVerifierTest {
         boolean result = FieldVerifier.isValidRoman(nbr);
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of isValidRoman method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidRomanNOKLimitSup() {
+        String nbr = "MM";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidRoman(nbr);
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of isValidDate method, of class FieldVerifier.
@@ -65,6 +186,72 @@ public class FieldVerifierTest {
     @Test
     public void testIsValidDateNOK() {
         String date = "a";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKDayInf() {
+        String date = "00/12/1998";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKDaySup() {
+        String date = "32/12/1998";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKMonthInf() {
+        String date = "01/00/1998";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKMonthSup() {
+        String date = "01/13/1998";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKYearInf() {
+        String date = "01/12/0000";
+        boolean expResult = false;
+        boolean result = FieldVerifier.isValidDate(date);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isValidDate method, of class FieldVerifier.
+     */
+    @Test
+    public void testIsValidDateNOKYearSup() {
+        String date = "01/12/2001";
         boolean expResult = false;
         boolean result = FieldVerifier.isValidDate(date);
         assertEquals(expResult, result);
