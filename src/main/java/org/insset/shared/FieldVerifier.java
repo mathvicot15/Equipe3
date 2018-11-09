@@ -59,7 +59,13 @@ public class FieldVerifier {
         //Implement your code
         return true;
     }
-
+    
+    /**
+    * @author  SRomain
+    * @since   09/11/2018
+    * @param nbr Valeur à traiter
+    * @return bool Retourne true ou false si la valeur est valide
+    */
     public static boolean isValidRoman(String nbr) {
         int res = 0;
         for (int i = 0 ; i < nbr.length() ;i++){
